@@ -1,0 +1,6 @@
+#!/bin/bash
+
+time_stamp="$(date "+%D %T")"
+echo "$* $time_stamp"
+
+git pull && git add --all && git commit -m "$* $time_stamp" && git push --all
