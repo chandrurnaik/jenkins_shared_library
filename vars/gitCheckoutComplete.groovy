@@ -1,6 +1,6 @@
 def call(String git_branch = "main", String git_crds = null, String git_url = null) {
     pipeline {
-        agent any 
+        agent { label 'slave1' }
         environment {
             GIT_BRANCH = "${git_branch}"
             GIT_CRDS = "${git_crds}"
