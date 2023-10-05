@@ -9,11 +9,13 @@ def call(String git_branch = "main", String git_crds = null, String git_url = nu
         stages {
             stage('git_checkout') {
                 steps {
+                    echo "starting SCM Checkout using gitCheckoutComplete.groovy file"
                     checkout([
                           $class: 'GitSCM', 
                           branches: [[name: "*/${GIT_BRANCH}"]], 
                           userRemoteConfigs: [[credentialsId: "${GIT_CRDS}", url: "${GIT_URL}"]]
                           ])
+                    sh 'pwd; ls -lrt'
                 }
             }
         }

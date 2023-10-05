@@ -1,0 +1,15 @@
+@Library('git-checkout-library')_
+
+pipeline {
+    agent any
+    stages {
+        stage('Chekout SCM') {
+            steps {
+               gitCheckout('main', 
+                           'chandrurnaik/****** (git credential)', 
+                           'https://github.com/chandrurnaik/Devops-ITD-May-2023') 
+            }
+        }
+        
+    }
+}
