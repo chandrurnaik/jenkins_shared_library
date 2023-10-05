@@ -7,7 +7,7 @@ def call(String dockerfile = null,
     def customImage = docker.build("${image_name}:${image_tag}",
                                    "-f ${dockerfile} ${docker_context}")
     docker.withRegistry("${registry_url}", "${registry_crds}") {
-
+        
         customImage.push()
     }
 }
